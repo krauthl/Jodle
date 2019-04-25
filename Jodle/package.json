@@ -26,4 +26,7 @@
       "android"
     ]
   }
+  "scripts": {
+    "start": "node main.js"
+  }
 }
