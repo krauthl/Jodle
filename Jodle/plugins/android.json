@@ -9,6 +9,9 @@
   "installed_plugins": {
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "fr.ensimag.Jodle"
+    },
+    "cordova-plugin-contacts": {
+      "PACKAGE_NAME": "fr.ensimag.Jodle"
     }
   },
   "dependent_plugins": {}
