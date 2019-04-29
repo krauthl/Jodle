@@ -12,6 +12,9 @@
     },
     "cordova-plugin-contacts": {
       "PACKAGE_NAME": "fr.ensimag.Jodle"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "fr.ensimag.Jodle"
     }
   },
   "dependent_plugins": {}

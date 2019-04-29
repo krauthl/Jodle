@@ -1,14 +1,13 @@
 <section class="view" ng-controller="contactCtrl">
-    <button id = "createContact">ADD CONTACT</button>
-    <button id = "findContact">FIND CONTACT</button>
-    <button id = "deleteContact">DELETE CONTACT</button>
-    <form>
-        <input data-type="search"/>
-    </form>
-    <ul>
-        <li >Item 1</li>
-        <li >Item 2</li>
-        <li >Item 3</li>
-    </ul>
+    <div class="topnav">
+        <div style="height:30px">
+            <div class="title" id="titleContact">
+                Contact
+            </div>
+            <a id="addContactButton"href="#contact/addContact" ><i class="material-icons">add</i></a>
+        </div>
+
+        <input type="text" placeholder="Rechercher..">
+    </div>
 
 </section>
