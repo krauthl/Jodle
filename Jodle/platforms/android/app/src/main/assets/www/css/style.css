@@ -1,0 +1,66 @@
+/* Interface */
+
+  .header{
+    display: inline;
+    position: absolute;
+    top: 0; left:0; right:0;
+    height: 60px; line-height: 60px;
+    color: #FFF;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: cadetblue;
+  }
+
+  .view{
+    position: absolute;
+    bottom:60px; right:0; left:0; top:60px;
+    text-align: center;
+  }
+
+  .nav{
+    position: absolute;
+    display: block;
+    bottom: 0; left:0; right:0;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    background-color: #99aabb;
+    overflow: hidden;
+    *zoom: 1;
+  }
+  .nav a{
+      display: block;
+      width:33.3%;
+      float:left;
+      height : 60px; line-height: 60px;
+      @include transition-duration;
+    }
+  .nav i{
+      margin-top: 15px;
+    }
+
+  .nav .active{
+    border-top: 3px solid #4B946A;
+  }
+
+  .panel{
+    position:absolute;
+    top:60px; left:0; right:0;bottom:60px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #title{
+    position: absolute;
+    left:47%;
+  }
+
+  #logIcon{
+    position: absolute;
+    left: 92%; top: 9%;
+  }
+
+  #multimedia{
+    display: flex;
+  }
