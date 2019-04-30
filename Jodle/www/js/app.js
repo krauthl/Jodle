@@ -1,6 +1,7 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady(){
+    listContacts();
 }
 
 var app = angular.module('app', ['ngRoute']);

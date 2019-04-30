@@ -1,5 +1,30 @@
 function contactCtrl($scope){
 
+
+    function listContacts(){
+        var options = new ContactFindOptions();
+        options.filter = "";
+        var fields = ["displayName", "name"];
+        navigator.contacts.find(fields, contactfindSuccess, contactfindError, options);
+
+        function contactfindSuccess(contacts) {
+
+            var table = document.getElementById("contactTable");
+
+            for (var i = 0; i < contacts.length; i++) {
+                alert("Display Name = " + contacts[i].displayName);
+                var newBRcontact = document.createElement('th');
+                newBRcontact.innerHTML = contacts[i].name.formatted;
+                newBRcontact.wrap('<tr></tr>');
+                table.appendChild(newBRcontact);
+            }
+        }
+
+        function contactfindError(message) {
+            alert('Failed because: ' + message);
+        }
+    }
+
     $scope.createContact = function() {
         console.log("dans create");
         var myContact = navigator.contacts.create({"displayName": "Test User"});
@@ -12,25 +37,6 @@ function contactCtrl($scope){
         }
 
         function contactError(message) {
-            alert('Failed because: ' + message);
-        }
-
-    }
-
-    $scope.findContacts = function() {
-        var options = new ContactFindOptions();
-        options.filter = "";
-        options.multiple = true;
-        fields = ["displayName"];
-        navigator.contacts.find(fields, contactfindSuccess, contactfindError, options);
-
-        function contactfindSuccess(contacts) {
-            for (var i = 0; i < contacts.length; i++) {
-                alert("Display Name = " + contacts[i].displayName);
-            }
-        }
-
-        function contactfindError(message) {
             alert('Failed because: ' + message);
         }
 
