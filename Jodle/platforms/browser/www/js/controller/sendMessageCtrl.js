@@ -1,4 +1,4 @@
-function messengerCtrl($scope){
+function sendMessageCtrl($scope){
     $scope.city;
 
     $scope.envoie = function(){
