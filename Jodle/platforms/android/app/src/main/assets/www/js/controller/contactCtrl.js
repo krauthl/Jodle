@@ -26,18 +26,25 @@ function contactCtrl($scope){
                         phone = value.value;
                     });
                 }
-                th += '<tr>'
-                th += '<th>'+name+' '+phone+'</th>';
-                th += '</tr>'
+                //if connected alors:
+                th += '<tr>';
+                th += '<th class="inline-block">' + name + ' ' + phone + '</th>';
+                th += '<div id="connectedCircle" class="inline-block"></div>';
+                th += '</tr>';
+                //else: ...
 
                 console.log(name, value);
             });
             $("#contactTable").html(th);
-
         }
 
         function contactfindError(message) {
             alert('Failed because: ' + message);
         }
+    }
+
+    function isConnected(phone){
+        //mise en forme du numéro de telephone (enlever le +33)
+        //requete api pour savoir si le contact est connecté
     }
 }

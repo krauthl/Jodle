@@ -63,3 +63,7 @@
   #multimedia{
     display: flex;
   }
+
+  .inline-block{
+    display: inline-block;
+  }

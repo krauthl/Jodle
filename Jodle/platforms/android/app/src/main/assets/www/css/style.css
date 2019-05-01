@@ -52,8 +52,7 @@
   }
 
   #title{
-    position: absolute;
-    left:47%;
+    text-align: center;
   }
 
   #logIcon{
@@ -63,4 +62,8 @@
 
   #multimedia{
     display: flex;
+  }
+
+  .inline-block{
+    display: inline-block;
   }

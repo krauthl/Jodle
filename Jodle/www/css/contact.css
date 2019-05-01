@@ -61,3 +61,10 @@
     position: absolute;
     top: -11px; left:445px; right:0; bottom:0;
 }
+
+#connectedCircle {
+    width: 10px;
+    height: 10px;
+    border-radius: 20px;
+    background: green;
+}
