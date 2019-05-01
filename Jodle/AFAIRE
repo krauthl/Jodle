@@ -1,0 +1,49 @@
+
+
+
+
+
+faire partie serveur (BD, etc...)
+	- faire les API (renvoi utilisateur connecté à proximité, recupérer les messages, ...) 
+	- envoyer des photos/vidéos sur serveur
+	- instancier la BD
+
+
+Faire les logins (page login)
+	- mdp
+	- faire page "vous êtes connectés"
+
+
+
+Page contact:
+	- mettre liste contacts connectés
+	- (recherche)	
+
+
+
+Page création compte
+	- formulaire d'inscription depuis login
+
+
+
+Page de Jodle envoyer
+	- faire js pour envoi (patron déjà fait)
+	- (rayon)
+	- plugin cordova pour gerer appareil photo et micro
+			
+
+
+Page de Reception de Jodle
+	- html
+	- js
+
+
+
+
+faire un about
+
+
+	
+
+ 
+
