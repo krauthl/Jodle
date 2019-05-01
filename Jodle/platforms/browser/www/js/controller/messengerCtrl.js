@@ -13,10 +13,6 @@ function messengerCtrl($scope){
         //fonction qui ouvrira la gallerie photo
     }
 
-    $scope.ouvrirMenuGallerie = function(){
-        //fonction qui ouvrira la gallerie photo
-    }
-
     ouvrirMenuEnregistrementSon = function(){
         //fonction qui ouvrira le menu pour un enregistrement audio
     }

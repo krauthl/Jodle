@@ -1,70 +1,43 @@
 function contactCtrl($scope){
 
+    listContacts();
 
     function listContacts(){
         var options = new ContactFindOptions();
-        options.filter = "";
-        var fields = ["displayName", "name"];
+        options.filter="";
+        options.filter="";
+        options.multiple=true;
+        var fields = ["*"];  //"*" will return all contact fields
         navigator.contacts.find(fields, contactfindSuccess, contactfindError, options);
 
         function contactfindSuccess(contacts) {
 
-            var table = document.getElementById("contactTable");
+            var th = '';
+            $.each(contacts, function(key, value) {
+                if(value.name){
+                    $.each(value.name, function(key, value) {
+                        if(key == 'formatted'){
+                            name = value;
+                        }
+                    });
+                }
+                if(value.phoneNumbers){
+                    $.each(value.phoneNumbers, function(key, value) {
+                        phone = value.value;
+                    });
+                }
+                th += '<tr>'
+                th += '<th>'+name+' '+phone+'</th>';
+                th += '</tr>'
 
-            for (var i = 0; i < contacts.length; i++) {
-                alert("Display Name = " + contacts[i].displayName);
-                var newBRcontact = document.createElement('th');
-                newBRcontact.innerHTML = contacts[i].name.formatted;
-                newBRcontact.wrap('<tr></tr>');
-                table.appendChild(newBRcontact);
-            }
+                console.log(name, value);
+            });
+            $("#contactTable").html(th);
+
         }
 
         function contactfindError(message) {
             alert('Failed because: ' + message);
         }
-    }
-
-    $scope.createContact = function() {
-        console.log("dans create");
-        var myContact = navigator.contacts.create({"displayName": "Test User"});
-        console.log(myContact.displayName);
-        myContact.save(contactSuccess, contactError);
-
-        function contactSuccess() {
-            console.log("coucou");
-            alert("Contact is saved!");
-        }
-
-        function contactError(message) {
-            alert('Failed because: ' + message);
-        }
-
-    }
-
-    $scope.deleteContact = function() {
-        var options = new ContactFindOptions();
-        options.filter = "Test User";
-        options.multiple = false;
-        fields = ["displayName"];
-        navigator.contacts.find(fields, contactfindSuccess, contactfindError, options);
-
-        function contactfindSuccess(contacts) {
-            var contact = contacts[0];
-            contact.remove(contactRemoveSuccess, contactRemoveError);
-
-            function contactRemoveSuccess(contact) {
-                alert("Contact Deleted");
-            }
-
-            function contactRemoveError(message) {
-                alert('Failed because: ' + message);
-            }
-        }
-
-        function contactfindError(message) {
-            alert('Failed because: ' + message);
-        }
-
     }
 }

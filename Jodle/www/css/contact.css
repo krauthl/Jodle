@@ -53,9 +53,7 @@
 }
 
 #titleContact{
-    display: inline;
-    position: absolute;
-    top: 5px; left: 219px;
+    text-align: center;
 }
 
 #addContactButton{
