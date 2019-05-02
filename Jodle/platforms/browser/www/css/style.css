@@ -60,10 +60,6 @@
     left: 92%; top: 9%;
   }
 
-  #multimedia{
-    display: flex;
-  }
-
   .inline-block{
     display: inline-block;
   }

@@ -12,7 +12,7 @@ app.config(function($routeProvider){
         .when('/loginPage', {templateUrl: 'partials/loginPage.html'})
         .when('/contact', {templateUrl: 'partials/contact.html'})
         .when('/about', {templateUrl: 'partials/about.html'})
-        .when('/contact/addContact', {templateUrl: 'partials/addContact.html'})
+        .when('/loginPage/addNewUser', {templateUrl: 'partials/addNewUser.html'})
         .otherwise({redirectTo: 'partials/home.html'})
 });
 
