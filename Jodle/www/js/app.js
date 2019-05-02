@@ -9,10 +9,12 @@ app.config(function($routeProvider){
     $routeProvider
         .when('/', {templateUrl : 'partials/loginPage.html'})
         .when('/sendMessage', {templateUrl : 'partials/sendMessage.html'})
+        .when('/receiveMessage', {templateUrl: 'partials/receiveMessage.html'})
         .when('/loginPage', {templateUrl: 'partials/loginPage.html'})
         .when('/contact', {templateUrl: 'partials/contact.html'})
-        .when('/about', {templateUrl: 'partials/about.html'})
         .when('/loginPage/addNewUser', {templateUrl: 'partials/addNewUser.html'})
+        .when('/maps', {templateUrl: 'partials/maps.html'})
+
         .otherwise({redirectTo: 'partials/home.html'})
 });
 

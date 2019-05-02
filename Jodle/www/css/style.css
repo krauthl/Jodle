@@ -30,7 +30,7 @@
   }
   .nav a{
       display: block;
-      width:33.3%;
+      width:25%;
       float:left;
       height : 60px; line-height: 60px;
       @include transition-duration;

@@ -1,14 +1,7 @@
-#titleContact{
+#titleMessage{
     text-align: center;
     height:30px;
     background-color: #E4E4E4;
-}
-
-#connectedCircle {
-    width: 10px;
-    height: 10px;
-    border-radius: 20px;
-    background: green;
 }
 
 hr{
@@ -19,4 +12,6 @@ hr{
     border: none; /*on supprime le style par défaut*/
 }
 
-
+.spanMessage{
+    line-height: 50px;
+}
