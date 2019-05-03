@@ -8,27 +8,19 @@
                                     Envoyez votre message
                     </span>
                     <div class="wrap-input100 validate-input m-b-23">
-                        <input class="input100" type="text" name="message" placeholder="Votre message" ng-model="city">
+                        <input id="messageAEnvoyer" class="input100" type="text" name="message" placeholder="Votre message">
                     </div>
 
                     <div id="multimedia">
-                        <div>
-                            <button ng-click="ouvrirMenuAppareilPhoto()"><i class="material-icons">add_a_photo</i></button>
-                        </div>
-
-                        <div>
-                            <button ng-click="ouvrirMenuGallerie()"><i class="material-icons">add_photo_alternate</i></button>
-                        </div>
-
-                        <div>
-                            <button ng-click="ouvrirMenuEnregistrementSon()"><i class="material-icons">audiotrack</i></button>
-                        </div>
+                        <button ng-click="captureImage()" style="width: 50px"><i class="material-icons" style="font-size: 30px">add_a_photo</i></button>
+                        <button ng-click="ouvrirMenuGallerie()" style="width: 50px"><i class="material-icons md-24" style="font-size: 30px">add_photo_alternate</i></button>
+                        <button ng-click="ouvrirMenuEnregistrementSon()" style="width: 50px"><i class="material-icons md-24" style="font-size: 30px">audiotrack</i></button>
                     </div>
 
                     <div class="container-login100-form-btn">
                         <div class="wrap-login100-form-btn">
                             <div class="login100-form-bgbtn"></div>
-                            <input type="submit" class="login100-form-btn" value="Jodler">
+                            <button class="login100-form-btn" ng-click="envoyer()">Jodler</button>
                         </div>
                     </div>
                 </form>

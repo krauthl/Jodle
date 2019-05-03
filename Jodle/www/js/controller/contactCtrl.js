@@ -27,10 +27,10 @@ function contactCtrl($scope){
                     });
                 }
                 //if connected alors:
-                th += '<tr>';
-                th += '<th class="inline-block">' + name + ' ' + phone + '</th>';
+
+                th += '<span class="inline-block">' + name + ' ' + phone + '</span>';
                 th += '<div id="connectedCircle" class="inline-block"></div>';
-                th += '</tr>';
+                th += '<hr>';
                 //else: ...
 
                 console.log(name, value);

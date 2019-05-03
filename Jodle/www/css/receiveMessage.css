@@ -1,0 +1,17 @@
+#titleMessage{
+    text-align: center;
+    height:30px;
+    background-color: #E4E4E4;
+}
+
+hr{
+    margin: 100px auto;
+    width: 100%;
+    height: 2px;
+    background-color: #eeeeee;
+    border: none; /*on supprime le style par défaut*/
+}
+
+.spanMessage{
+    line-height: 50px;
+}
