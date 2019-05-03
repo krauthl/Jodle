@@ -81,9 +81,10 @@
 
         <section>
             <nav class="nav" ng-controller="NavCtrl">
-                <a href="#sendMessage" ng-click="menu='sendMessage'" ng-class="{active: menu == 'sendMessage'}"><i class="material-icons">home</i></a>
-                <a href="#contact" ng-click="menu='contact'; listContacts()" ng-class="{active: menu == 'contact'}"><i class="material-icons">cloud</i></a>
-                <a href="#about" ng-click="menu='about'" ng-class="{active: menu == 'about'}"><i class="material-icons">attachment</i></a>
+                <a href="#sendMessage" ng-click="menu='sendMessage'" ng-class="{active: menu == 'sendMessage'}"><i class="material-icons">message</i></a>
+                <a href="#receiveMessage" ng-click="menu='receiveMessage'" ng-class="{active: menu == 'receiveMessage'}"><i class="material-icons">forum</i></a>
+                <a href="#maps" ng-click="menu='maps'" ng-class="{active: menu == 'maps'}"><i class="material-icons">map</i></a>
+                <a href="#contact" ng-click="menu='contact'; listContacts()" ng-class="{active: menu == 'contact'}"><i class="material-icons">contacts</i></a>
             </nav>
         </section>
 

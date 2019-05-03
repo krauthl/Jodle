@@ -26,7 +26,7 @@
   "cordova-plugin-camera": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-camera@4.0.3"
+      "id": "cordova-plugin-camera@^4.0.3"
     },
     "is_top_level": true,
     "variables": {}
@@ -34,7 +34,7 @@
   "cordova-plugin-media-capture": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-media-capture@3.0.2"
+      "id": "cordova-plugin-media-capture@^3.0.2"
     },
     "is_top_level": true,
     "variables": {}
