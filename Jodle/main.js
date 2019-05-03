@@ -14,7 +14,6 @@ app.use(express.static('public'));
 
 app.get('/Envoyer', function (req , res) {
     res.render('Envoyer', {});
-    
 
 })
 
