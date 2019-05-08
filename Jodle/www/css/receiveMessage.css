@@ -1,17 +1,89 @@
-#titleMessage{
-    text-align: center;
-    height:30px;
-    background-color: #E4E4E4;
-}
+.messages {
+    /* Flexbox-specific styles */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 
-hr{
-    margin: 100px auto;
+    /* General styling */
+    font: 16px/1.3 sans-serif;
+    height: 100%;
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 8px;
+    overflow: auto;
     width: 100%;
-    height: 2px;
-    background-color: #eeeeee;
-    border: none; /*on supprime le style par défaut*/
 }
 
-.spanMessage{
-    line-height: 50px;
+/* Default styles for chat bubbles */
+.messages li {
+    background: #eee;
+    border-radius: 8px;
+    padding: 8px;
+    margin: 2px 8px 2px 0;
+}
+
+/* Styles specific to our chat bubbles */
+.messages .ours {
+    align-self: flex-end; /* Stick to the right side, please! */
+    margin: 2px 0 2px 8px;
+    mix-blend-mode: screen;
+    pointer-events: none;
+    width:70%;
+
+}
+
+.message .theirs {
+    margin: 2px 0 2px 8px;
+    mix-blend-mode: screen;
+    pointer-events: none;
+}
+
+.messages .oursMessage{
+    background: linear-gradient(rgb(255, 143, 178) 0%, rgb(167, 151, 255) 50%, rgb(0, 229, 255) 100%);
+    color: white;
+}
+
+.messages .theirsMessage{
+    margin: 2px 0 2px 8px;
+    mix-blend-mode: screen;
+    pointer-events: none;
+    background: #eee;
+    width:70%;
+}
+
+.messages .nameMessage{
+    color: rgba(0, 0, 0, .40);
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 1.28;
+    padding-left: 11px;
+}
+
+
+.icon-contact-theirs{
+    position: relative;
+    top: 21px;
+    margin-left: 6px;
+}
+
+
+.icon-contact-ours{
+    position: relative;
+    top: 21px;
+    margin-right: 6px;
+}
+
+.NameAndMessage{
+    max-width: 70%;
+}
+
+.contentMessage{
+    white-space: initial;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dispositionMessage{
+    display: flex;
+
 }

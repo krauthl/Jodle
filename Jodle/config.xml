@@ -23,4 +23,6 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
+    <preference name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyCiLYv419WNPMhUSsGiv15tuUw6BdBOC-U" />
+    <preference name="GOOGLE_MAPS_IOS_API_KEY" value="AIzaSyCiLYv419WNPMhUSsGiv15tuUw6BdBOC-U" />
 </widget>
