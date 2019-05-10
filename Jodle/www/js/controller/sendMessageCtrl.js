@@ -4,10 +4,8 @@ function sendMessageCtrl($scope){
 
     //fonction appelée lors de l'appui sur le bouton envoyer
     $scope.envoyer = function(){
-        console.log("j'ai appuyé sur bouton");
         var textAEnvoyer = document.getElementById("messageAEnvoyer").value;
-        console.log(textAEnvoyer);
-        chat.emit('write', textAEnvoyer); //envoyer aussi le numéro de telephone
+        socket.emit(numeroCourant, textAEnvoyer); //envoyer aussi le numéro de telephone
      };
 
 
