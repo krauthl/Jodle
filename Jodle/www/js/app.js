@@ -22,6 +22,7 @@ app.config(function($routeProvider){
         .when('/loginPage/addNewUser', {templateUrl: 'partials/addNewUser.html'})
         .when('/loginPage/forgotPassword', {templateUrl: 'partials/forgotPassword.html'})
         .when('/loginPage/connected', {templateUrl: 'partials/connected.html'})
+        .when('/login', {templateUrl: 'partials/connected.html'})
         .when('/maps', {templateUrl: 'partials/maps.html'})
 
         .otherwise({redirectTo: 'partials/home.html'});
