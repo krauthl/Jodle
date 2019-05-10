@@ -17,7 +17,7 @@ app.config(function($routeProvider){
         .when('/loginPage/connected', {templateUrl: 'partials/connected.html'})
         .when('/maps', {templateUrl: 'partials/maps.html'})
 
-        .otherwise({redirectTo: 'partials/home.html'})
+        .otherwise({redirectTo: 'partials/home.html'});
 });
 
 

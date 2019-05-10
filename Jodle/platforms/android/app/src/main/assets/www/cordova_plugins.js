@@ -586,6 +586,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "file": "plugins/cordova-plugin-googlemaps/www/js_CordovaGoogleMaps-for-android_ios.js",
       "pluginId": "cordova-plugin-googlemaps",
       "runs": true
+    },
+    {
+      "id": "cz.blocshop.socketsforcordova.Socket",
+      "file": "plugins/cz.blocshop.socketsforcordova/socket.js",
+      "pluginId": "cz.blocshop.socketsforcordova",
+      "clobbers": [
+        "window.Socket"
+      ]
     }
   ];
   module.exports.metadata = {
@@ -595,6 +603,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-camera": "4.0.3",
     "cordova-plugin-file": "6.0.1",
     "cordova-plugin-media-capture": "3.0.2",
-    "cordova-plugin-googlemaps": "2.6.2"
+    "cordova-plugin-googlemaps": "2.6.2",
+    "cz.blocshop.socketsforcordova": "1.1.0"
   };
 });

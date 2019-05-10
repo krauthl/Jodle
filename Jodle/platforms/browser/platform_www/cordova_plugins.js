@@ -688,6 +688,14 @@ module.exports = [
         "id": "cordova-plugin-googlemaps.PluginEnvironment",
         "pluginId": "cordova-plugin-googlemaps",
         "runs": true
+    },
+    {
+        "file": "plugins/cz.blocshop.socketsforcordova/socket.js",
+        "id": "cz.blocshop.socketsforcordova.Socket",
+        "pluginId": "cz.blocshop.socketsforcordova",
+        "clobbers": [
+            "window.Socket"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -699,7 +707,8 @@ module.exports.metadata =
     "cordova-plugin-camera": "4.0.3",
     "cordova-plugin-file": "6.0.1",
     "cordova-plugin-media-capture": "3.0.2",
-    "cordova-plugin-googlemaps": "2.6.2"
+    "cordova-plugin-googlemaps": "2.6.2",
+    "cz.blocshop.socketsforcordova": "1.1.0"
 }
 // BOTTOM OF METADATA
 });

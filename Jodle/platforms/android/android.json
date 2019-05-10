@@ -91,6 +91,10 @@
             {
               "xml": "<feature name=\"PluginStreetViewPanorama\"><param name=\"android-package\" value=\"plugin.google.maps.PluginStreetViewPanorama\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"SocketsForCordova\"><param name=\"android-package\" value=\"cz.blocshop.socketsforcordova.SocketPlugin\" /></feature>",
+              "count": 1
             }
           ]
         }
@@ -150,7 +154,7 @@
           "/manifest": [
             {
               "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
-              "count": 1
+              "count": 2
             },
             {
               "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
@@ -221,6 +225,9 @@
     "cordova-plugin-googlemaps": {
       "PLAY_SERVICES_VERSION": "15.0.1",
       "ANDROID_SUPPORT_V4_VERSION": "27.+",
+      "PACKAGE_NAME": "fr.ensimag.Jodle"
+    },
+    "cz.blocshop.socketsforcordova": {
       "PACKAGE_NAME": "fr.ensimag.Jodle"
     }
   },
@@ -812,6 +819,14 @@
       "file": "plugins/cordova-plugin-googlemaps/www/js_CordovaGoogleMaps-for-android_ios.js",
       "pluginId": "cordova-plugin-googlemaps",
       "runs": true
+    },
+    {
+      "id": "cz.blocshop.socketsforcordova.Socket",
+      "file": "plugins/cz.blocshop.socketsforcordova/socket.js",
+      "pluginId": "cz.blocshop.socketsforcordova",
+      "clobbers": [
+        "window.Socket"
+      ]
     }
   ],
   "plugin_metadata": {
@@ -821,6 +836,7 @@
     "cordova-plugin-camera": "4.0.3",
     "cordova-plugin-file": "6.0.1",
     "cordova-plugin-media-capture": "3.0.2",
-    "cordova-plugin-googlemaps": "2.6.2"
+    "cordova-plugin-googlemaps": "2.6.2",
+    "cz.blocshop.socketsforcordova": "1.1.0"
   }
 }
