@@ -5,7 +5,7 @@ function sendMessageCtrl($scope){
     //fonction appelée lors de l'appui sur le bouton envoyer
     $scope.envoyer = function(){
         var textAEnvoyer = document.getElementById("messageAEnvoyer").value;
-        socket.emit(numeroCourant, textAEnvoyer); //envoyer aussi le numéro de telephone
+        socket.emit('write', textAEnvoyer, numeroCourant); //envoyer aussi le numéro de telephone
      };
 
 

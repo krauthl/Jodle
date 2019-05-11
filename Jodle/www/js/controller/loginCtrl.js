@@ -11,7 +11,6 @@ function loginCtrl($scope, $location) {
 
         console.log("le numero client est : "+ numeroClient);
         $.post("http://localhost:8080/login", {"username": numeroClient, "mdp": mdp}, function (msg) {
-            console.log(msg);
             if (msg.message != "ok") {
                 alert(msg.message);
             } else {

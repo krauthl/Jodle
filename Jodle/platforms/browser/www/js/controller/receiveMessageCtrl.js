@@ -1,23 +1,23 @@
 function receiveMessageCtrl($scope){
 
-    function afficherMessageServeur(message, nom, heure){
-        //Si nom ou num différent du mien, afficher ça sinon autre chose
-        console.log(message);
-        var messageHtml = '<div class="received-chats">';
-        messageHtml += '<div class="received-chats-img">';
-        messageHtml +=  '<img src="">';
-        messageHtml +=  '</div>';
-        messageHtml +=  '<div class="received-msg">';
-        messageHtml +=  '<div class="received-msg-inbox">';
-        messageHtml +=  '<span class="name">'+ nom +'</span>';
-        messageHtml +=  '<p>'+message+'</p>';
-        messageHtml +=  '<span class="time">'+ heure +'</span>';
-        messageHtml +=  '</div>';
-        messageHtml +=  '</div>';
-        messageHtml +=  '</div>';
-        console.log(messageHtml);
+    //Executer une fonction pour récupérer les messages stockées dans le telephone
+    afficherDernierMessageServeur();
+    console.log(window.location.hash);
+}
 
-        document.getElementById('messageTable').innerHTML += messageHtml;
 
+
+function afficherDernierMessageServeur(){
+    //Si nom ou num différent du mien, afficher ça sinon autre chose
+    if(listeMessage.length > 0){
+
+        for(var i=0; i < listeMessage.length; i++){
+            afficherMessage(listeMessage[i].expediteur, listeMessage[i].message, listeMessage[i].data);
+            listeMessage.splice(i, 1); //on retire un élément à la position i
+        }
     }
+    else{
+        console.log("pas de message à afficher");
+    }
+
 }

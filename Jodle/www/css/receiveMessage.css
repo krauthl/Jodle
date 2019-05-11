@@ -78,7 +78,7 @@ img{
     width:100%
 }
 .outgoing-chats-msg{
-    float: left;
+    float: right;
     with:46%;
     margin-left: 45%;
 }
