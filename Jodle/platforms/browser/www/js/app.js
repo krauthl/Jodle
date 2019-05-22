@@ -16,7 +16,7 @@ function connectionSocket(usrName){
         console.log("le numero courant est " + numeroCourant);
         socket.on('boiteReception', function(nomExpe, message, date){
             if(window.location.hash != '#/receiveMessage'){
-                //Si la location n'est pas receiveMessage
+                //Si la location n'est pas receiveMessage (permet d'avoir du temps réel)
                 alert("J'ai reçu le message "+ message + " de la part de " + nomExpe + " à la date " + date);
                 listeMessage.push({expediteur : nomExpe, message: message, date: date}); //remplir une array liste avec les messages à afficher
             }
@@ -24,15 +24,25 @@ function connectionSocket(usrName){
                 //sinon l'afficher direct
                 afficherMessage(nomExpe, message, date);
             }
-
         });
-
     });
 }
 
 function afficherMessage(expediteur, message, date) {
     var messageHtml;
     if (expediteur == numeroCourant) {
+        messageHtml = '<div class="outgoing-chats">';
+        messageHtml += '<div class="outgoing-chats-msg">';
+        messageHtml += '<span class="name">' + expediteur + '</span>';
+        messageHtml += '<p>' + message + '</p>';
+        messageHtml += '<span class="time">' + date + '</span>';
+        messageHtml += '</div>';
+        messageHtml += '<div class="outgoing-chats-img">';
+        messageHtml += '<img src="">';
+        messageHtml += '</div>';
+        messageHtml += '</div>';
+        console.log(messageHtml);
+    } else {
         console.log(message);
         messageHtml = '<div class="received-chats">';
         messageHtml += '<div class="received-chats-img">';
@@ -44,18 +54,6 @@ function afficherMessage(expediteur, message, date) {
         messageHtml += '<p>' + message + '</p>';
         messageHtml += '<span class="time">' + date + '</span>';
         messageHtml += '</div>';
-        messageHtml += '</div>';
-        messageHtml += '</div>';
-        console.log(messageHtml);
-    } else {
-        messageHtml = '<div class="outgoing-chats">';
-        messageHtml += '<div class="outgoing-chats-msg">';
-        messageHtml += '<span class="name">' + expediteur + '</span>';
-        messageHtml += '<p>' + message + '</p>';
-        messageHtml += '<span class="time">' + date + '</span>';
-        messageHtml += '</div>';
-        messageHtml += '<div class="outgoing-chats-img">';
-        messageHtml += '<img src="">';
         messageHtml += '</div>';
         messageHtml += '</div>';
         console.log(messageHtml);

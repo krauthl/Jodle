@@ -13,7 +13,7 @@ function afficherDernierMessageServeur(){
 
         for(var i=0; i < listeMessage.length; i++){
             afficherMessage(listeMessage[i].expediteur, listeMessage[i].message, listeMessage[i].data);
-            listeMessage.splice(i, 1); //on retire un élément à la position i
+//            listeMessage.splice(i, 1); //on retire un élément à la position i
         }
     }
     else{
