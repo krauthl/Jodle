@@ -14,8 +14,12 @@ function sendMessageCtrl($scope){
     $scope.captureImage = function () {
         // Launch device camera application,
         // allowing user to capture up to 2 images
-        var options = { limit: 1 };
-        navigator.device.capture.captureImage(captureSuccess, captureError, options);
+        // var options = { limit: 1 };
+        // navigator.device.capture.captureImage(captureSuccess, captureError, options);
+        document.addEventListener("deviceready", onDeviceReady, false);
+        function onDeviceReady() {
+            console.log(navigator.camera);
+        }
     };
 
     // Called when capture operation is finished
