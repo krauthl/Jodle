@@ -31,35 +31,18 @@ function connectionSocket(usrName){
 function afficherMessage(expediteur, message, date) {
     var messageHtml;
     if (expediteur == numeroCourant) {
-<<<<<<< HEAD
-        console.log(message);
-        messageHtml = '<div class="received-chats">';
-        messageHtml += '<div class="received-chats-img">';
-        messageHtml += '<img src="">';
-        messageHtml += '</div>';
-        messageHtml += '<div class="received-msg">';
-        messageHtml += '<div class="received-msg-inbox">';
-=======
         messageHtml = '<div class="outgoing-chats">';
         messageHtml += '<div class="outgoing-chats-msg">';
->>>>>>> 558b85fbd56b6ce92b5783ffe4b4154f447cbb60
         messageHtml += '<span class="name">' + expediteur + '</span>';
         messageHtml += '<p>' + message + '</p>';
         messageHtml += '<span class="time">' + date + '</span>';
         messageHtml += '</div>';
-<<<<<<< HEAD
-=======
         messageHtml += '<div class="outgoing-chats-img">';
         messageHtml += '<img src="">';
->>>>>>> 558b85fbd56b6ce92b5783ffe4b4154f447cbb60
         messageHtml += '</div>';
         messageHtml += '</div>';
         console.log(messageHtml);
     } else {
-<<<<<<< HEAD
-        messageHtml = '<div class="outgoing-chats">';
-        messageHtml += '<div class="outgoing-chats-msg">';
-=======
         console.log(message);
         messageHtml = '<div class="received-chats">';
         messageHtml += '<div class="received-chats-img">';
@@ -67,16 +50,10 @@ function afficherMessage(expediteur, message, date) {
         messageHtml += '</div>';
         messageHtml += '<div class="received-msg">';
         messageHtml += '<div class="received-msg-inbox">';
->>>>>>> 558b85fbd56b6ce92b5783ffe4b4154f447cbb60
         messageHtml += '<span class="name">' + expediteur + '</span>';
         messageHtml += '<p>' + message + '</p>';
         messageHtml += '<span class="time">' + date + '</span>';
         messageHtml += '</div>';
-<<<<<<< HEAD
-        messageHtml += '<div class="outgoing-chats-img">';
-        messageHtml += '<img src="">';
-=======
->>>>>>> 558b85fbd56b6ce92b5783ffe4b4154f447cbb60
         messageHtml += '</div>';
         messageHtml += '</div>';
         console.log(messageHtml);
