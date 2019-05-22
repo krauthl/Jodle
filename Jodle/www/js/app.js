@@ -17,6 +17,9 @@ function connectionSocket(usrName){
         socket.on('boiteReception', function(nomExpe, message, date){
             if(window.location.hash != '#/receiveMessage'){
                 //Si la location n'est pas receiveMessage (permet d'avoir du temps réel)
+                //envoiContactServeur();
+                socket.emit('contact', numeroCourant, "123");
+                socket.emit('contact', numeroCourant, "1234567");
                 alert("J'ai reçu le message "+ message + " de la part de " + nomExpe + " à la date " + date);
                 listeMessage.push({expediteur : nomExpe, message: message, date: date}); //remplir une array liste avec les messages à afficher
             }
@@ -59,6 +62,60 @@ function afficherMessage(expediteur, message, date) {
         console.log(messageHtml);
     }
     document.getElementById('messageTable').innerHTML += messageHtml;
+}
+
+
+/*function envoiContactServeur(){
+    var options = new ContactFindOptions();
+    options.filter="";
+    options.filter="";
+    options.multiple=true;
+    var fields = ["*"];  //"*" will return all contact fields
+    navigator.contacts.find(fields, contactfindSuccess, contactfindError, options);
+
+    function contactfindSuccess(contacts) {
+
+        //var th = '';
+        $.each(contacts, function(key, value) {
+            /*if(value.name){
+                $.each(value.name, function(key, value) {
+                    if(key == 'formatted'){
+                        name = value;
+                    }
+                });
+            }*/
+            /*if(value.phoneNumbers){
+                $.each(value.phoneNumbers, function(key, value) {
+                    phone = value.value;
+                    socket.emit('contatct', numeroCourant, formatStringNumero(phone));
+
+
+                });
+            }*/
+            //if connected alors:
+
+            /*th += '<span class="inline-block">' + name + ' ' + phone + '</span>';
+            th += '<div id="connectedCircle" class="inline-block"></div>';
+            th += '<hr>';
+            //else: ...*/
+
+            /*console.log(name, value);
+        });
+        $("#contactTable").html(th);
+    }
+
+    function contactfindError(message) {
+        alert('Failed because: ' + message);
+    }
+}*/
+
+function formatStringNumero(numero){
+    var formatNumero = numero;
+    if(formatNumero.startWith("+33")){
+        formatNumero = '0'+ formatNumero.slice(3);
+    }
+    formatNumero = formatNumero.split(' ').join('');
+    return formatNumero;
 }
 
 
