@@ -20,6 +20,7 @@ function loginCtrl($scope, $location) {
                 $scope.$apply(function(){
                     $location.path('/sendMessage'); //On redirige l'utilisateur vers la page d'envoi de message
                 });
+                document.getElementById("logIcon").style.display = "block"; // on affiche l'icone de déconnexion
                 document.getElementById("idNav").style.display = "block"; // on réaffiche la bar de navigation
                 connectionSocket(numeroClient);
             }
