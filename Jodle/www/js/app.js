@@ -14,12 +14,12 @@ function connectionSocket(usrName){
     socket.on('connection', function(message){
         alert(message);
         console.log("le numero courant est " + numeroCourant);
+        socket.emit('contact', numeroCourant, "123");
+        socket.emit('contact', numeroCourant, "1234567");
         socket.on('boiteReception', function(nomExpe, message, date){
             if(window.location.hash != '#/receiveMessage'){
                 //Si la location n'est pas receiveMessage (permet d'avoir du temps réel)
                 //envoiContactServeur();
-                socket.emit('contact', numeroCourant, "123");
-                socket.emit('contact', numeroCourant, "1234567");
                 alert("J'ai reçu le message "+ message + " de la part de " + nomExpe + " à la date " + date);
                 listeMessage.push({expediteur : nomExpe, message: message, date: date}); //remplir une array liste avec les messages à afficher
             }
