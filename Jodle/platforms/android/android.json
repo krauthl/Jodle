@@ -93,7 +93,7 @@
               "count": 1
             },
             {
-              "xml": "<feature name=\"SocketsForCordova\"><param name=\"android-package\" value=\"cz.blocshop.socketsforcordova.SocketPlugin\" /></feature>",
+              "xml": "<feature name=\"Geolocation\"><param name=\"android-package\" value=\"org.apache.cordova.geolocation.Geolocation\" /></feature>",
               "count": 1
             }
           ]
@@ -129,6 +129,18 @@
             {
               "xml": "<uses-permission android:name=\"android.permission.READ_EXTERNAL_STORAGE\" />",
               "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-feature android:name=\"android.hardware.location.gps\" />",
+              "count": 1
             }
           ],
           "application": [
@@ -154,7 +166,7 @@
           "/manifest": [
             {
               "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
-              "count": 2
+              "count": 1
             },
             {
               "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
@@ -227,7 +239,7 @@
       "ANDROID_SUPPORT_V4_VERSION": "27.+",
       "PACKAGE_NAME": "fr.ensimag.Jodle"
     },
-    "cz.blocshop.socketsforcordova": {
+    "cordova-plugin-geolocation": {
       "PACKAGE_NAME": "fr.ensimag.Jodle"
     }
   },
@@ -821,12 +833,18 @@
       "runs": true
     },
     {
-      "id": "cz.blocshop.socketsforcordova.Socket",
-      "file": "plugins/cz.blocshop.socketsforcordova/socket.js",
-      "pluginId": "cz.blocshop.socketsforcordova",
+      "id": "cordova-plugin-geolocation.geolocation",
+      "file": "plugins/cordova-plugin-geolocation/www/android/geolocation.js",
+      "pluginId": "cordova-plugin-geolocation",
       "clobbers": [
-        "window.Socket"
+        "navigator.geolocation"
       ]
+    },
+    {
+      "id": "cordova-plugin-geolocation.PositionError",
+      "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
+      "pluginId": "cordova-plugin-geolocation",
+      "runs": true
     }
   ],
   "plugin_metadata": {
@@ -837,6 +855,6 @@
     "cordova-plugin-file": "6.0.1",
     "cordova-plugin-media-capture": "3.0.2",
     "cordova-plugin-googlemaps": "2.6.2",
-    "cz.blocshop.socketsforcordova": "1.1.0"
+    "cordova-plugin-geolocation": "4.0.1"
   }
 }

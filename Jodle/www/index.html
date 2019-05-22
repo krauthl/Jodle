@@ -36,6 +36,7 @@
         <link rel="stylesheet" type="text/css" href="css/sendMessage.css">
         <link rel="stylesheet" type="text/css" href="css/receiveMessage.css">
         <link rel="stylesheet" type="text/css" href="css/maps.css">
+        <link rel="stylesheet" type="text/css" href="css/takenPicture.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -87,7 +88,7 @@
         </section>
 
         <section>
-            <nav style="display:none" id="idNav" class="nav" ng-controller="NavCtrl">
+            <nav style="display:block" id="idNav" class="nav" ng-controller="NavCtrl">
                 <a href="#sendMessage" ng-click="menu='sendMessage'" ng-class="{active: menu == 'sendMessage'}"><i class="material-icons">message</i></a>
                 <a href="#receiveMessage" ng-click="menu='receiveMessage'" ng-class="{active: menu == 'receiveMessage'}"><i class="material-icons">forum</i></a>
                 <a href="#maps" ng-click="menu='maps'" ng-class="{active: menu == 'maps'}"><i class="material-icons">map</i></a>
@@ -108,6 +109,8 @@
         <script src="js/controller/sendMessageCtrl.js"></script>
         <script src="js/controller/contactCtrl.js"></script>
         <script src="js/controller/mapsCtrl.js"></script>
+        <script src="js/controller/takenPictureCtrl.js"></script>
+
 
 
         <!--For loginPage-->

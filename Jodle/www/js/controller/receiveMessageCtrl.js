@@ -10,6 +10,7 @@ function receiveMessageCtrl($scope){
 function afficherDernierMessageServeur(){
     //Si nom ou num différent du mien, afficher ça sinon autre chose
     if(listeMessage.length > 0){
+        console.log(listeMessage.length);
 
         for(var i=0; i < listeMessage.length; i++){
             afficherMessage(listeMessage[i].expediteur, listeMessage[i].message, listeMessage[i].data);

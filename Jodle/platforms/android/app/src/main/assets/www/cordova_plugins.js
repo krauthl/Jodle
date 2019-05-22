@@ -588,12 +588,18 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "runs": true
     },
     {
-      "id": "cz.blocshop.socketsforcordova.Socket",
-      "file": "plugins/cz.blocshop.socketsforcordova/socket.js",
-      "pluginId": "cz.blocshop.socketsforcordova",
+      "id": "cordova-plugin-geolocation.geolocation",
+      "file": "plugins/cordova-plugin-geolocation/www/android/geolocation.js",
+      "pluginId": "cordova-plugin-geolocation",
       "clobbers": [
-        "window.Socket"
+        "navigator.geolocation"
       ]
+    },
+    {
+      "id": "cordova-plugin-geolocation.PositionError",
+      "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
+      "pluginId": "cordova-plugin-geolocation",
+      "runs": true
     }
   ];
   module.exports.metadata = {
@@ -604,6 +610,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-file": "6.0.1",
     "cordova-plugin-media-capture": "3.0.2",
     "cordova-plugin-googlemaps": "2.6.2",
-    "cz.blocshop.socketsforcordova": "1.1.0"
+    "cordova-plugin-geolocation": "4.0.1"
   };
 });

@@ -1,72 +1,56 @@
-function sendMessageCtrl($scope){
+var imageDataGlobal;
+var pictureSource;   // picture source
+var destinationType; // sets the format of returned value
 
+function sendMessageCtrl($scope, $location){
 
+    pictureSource=navigator.camera.PictureSourceType;
+    destinationType=navigator.camera.DestinationType;
 
     //fonction appelée lors de l'appui sur le bouton envoyer
     $scope.envoyer = function(){
         var textAEnvoyer = document.getElementById("messageAEnvoyer").value;
         socket.emit('write', textAEnvoyer, numeroCourant); //envoyer aussi le numéro de telephone
+
+            //$location.path('/receiveMessage');
      };
 
 
     // A button will call this function
     //
     $scope.captureImage = function () {
-        // Launch device camera application,
-        // allowing user to capture up to 2 images
-        // var options = { limit: 1 };
-        // navigator.device.capture.captureImage(captureSuccess, captureError, options);
-        document.addEventListener("deviceready", onDeviceReady, false);
-        function onDeviceReady() {
-            console.log(navigator.camera);
+        navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
+            destinationType: destinationType.FILE_URI});
+
+        function onPhotoURISuccess(imageData) {
+            imageDataGlobal = imageData;
+            $location.path('/sendMessage/takenPicture');
+        }
+
+        function onFail(message) {
+            alert('Failed because: ' + message);
         }
     };
 
-    // Called when capture operation is finished
-    //
-    function captureSuccess(mediaFiles) {
-        var i, len;
-        for (i = 0, len = mediaFiles.length; i < len; i += 1) {
-            uploadFile(mediaFiles[i]);
-        }
-    }
 
-    // Called if something bad happens.
-    //
-    function captureError(error) {
-        var msg = 'An error occurred during capture: ' + error.code;
-        alert(msg, null, 'Uh oh!');
-    }
 
-    // Upload files to server
-    function uploadFile(mediaFile) {
-        var ft = new FileTransfer(),
-            path = mediaFile.fullPath,
-            name = mediaFile.name;
 
-        ft.upload(path,
-            "http://my.domain.com/upload.php",
-            function(result) {
-                console.log('Upload success: ' + result.responseCode);
-                console.log(result.bytesSent + ' bytes sent');
-            },
-            function(error) {
-                console.log('Error uploading file ' + path + ': ' + error.code);
-            },
-            { fileName: name });
+    function uploadPhoto(imageURI) {
+        var options = new FileUploadOptions();
+        options.fileKey="file";
+        options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+        options.mimeType="image/jpeg";
+
+        var params = {};
+        params.value1 = "test";
+        params.value2 = "param";
+
+        options.params = params;
+
+        var ft = new FileTransfer();
+        ft.upload(imageURI, encodeURI("http://some.server.com/upload.php"), win, fail, options);
     }
 
 
-
-
-
-
-    $scope.ouvrirMenuGallerie = function(){
-        //fonction qui ouvrira la gallerie photo
-    };
-
-    ouvrirMenuEnregistrementSon = function(){
-        //fonction qui ouvrira le menu pour un enregistrement audio
-    };
 
 }

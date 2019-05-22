@@ -5,6 +5,8 @@ var numeroCourant;
 
 var listeMessage = [];
 
+var watchID = navigator.geolocation.watchPosition(onSuccessPosition, onErrorPosition, { timeout: 30000 });
+
 function onDeviceReady(){
 }
 
@@ -14,18 +16,32 @@ function connectionSocket(usrName){
     socket.on('connection', function(message){
         alert(message);
         console.log("le numero courant est " + numeroCourant);
-        socket.emit('contact', numeroCourant, "123");
-        socket.emit('contact', numeroCourant, "1234567");
+
+
+        socket.emit('contact', numeroCourant, "123"); //A enlever
+        socket.emit('contact', numeroCourant, "1234567");//A enlever
+
+        //récupération des messages en attente
+        socket.on('recupereMessage', function(message){
+
+            for(var i=0; i<message.length; i++){
+                listeMessage.push({expediteur : message[i].expediteur, destinataire: message[i].destinataire, message: message[i].message});
+            }
+        });
+
+        //récupération des messages instantannés
         socket.on('boiteReception', function(nomExpe, message, date){
             if(window.location.hash != '#/receiveMessage'){
                 //Si la location n'est pas receiveMessage (permet d'avoir du temps réel)
-                //envoiContactServeur();
+                //envoiContactServeur(); //A decommenter quand on utilisera le serveur
                 alert("J'ai reçu le message "+ message + " de la part de " + nomExpe + " à la date " + date);
                 listeMessage.push({expediteur : nomExpe, message: message, date: date}); //remplir une array liste avec les messages à afficher
             }
             else{
-                //sinon l'afficher direct
-                afficherMessage(nomExpe, message, date);
+                if(message != null){
+                    //sinon l'afficher direct
+                    afficherMessage(nomExpe, message, date);
+                }
             }
         });
     });
@@ -64,7 +80,7 @@ function afficherMessage(expediteur, message, date) {
     document.getElementById('messageTable').innerHTML += messageHtml;
 }
 
-
+//A decommenter quand on utilisera le serveur
 /*function envoiContactServeur(){
     var options = new ContactFindOptions();
     options.filter="";
@@ -118,6 +134,20 @@ function formatStringNumero(numero){
     return formatNumero;
 }
 
+function onSuccessPosition(position) {
+    //alert(position.coords.longitude);
+    //alert(position.coords.latitude);
+    //socket.emit('localisation', numeroCourant, position.coords.longitude, position.coords.longitude);
+    socket.emit('localisation', numeroCourant, 5, 45);
+}
+
+// onError Callback receives a PositionError object
+//
+function onErrorPosition(error) {
+    alert('code: '    + error.code    + '\n' +
+        'message: ' + error.message + '\n');
+}
+
 
 var app = angular.module('app', ['ngRoute']);
 
@@ -134,6 +164,7 @@ app.config(function($routeProvider){
         .when('/loginPage/connected', {templateUrl: 'partials/connected.html'})
         .when('/login', {templateUrl: 'partials/connected.html'})
         .when('/maps', {templateUrl: 'partials/maps.html'})
+        .when('/sendMessage/takenPicture', {templateUrl: 'partials/takenPicture.html'})
         .otherwise({redirectTo: 'partials/home.html'});
 });
 
