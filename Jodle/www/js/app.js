@@ -71,12 +71,12 @@ app.config(function($routeProvider){
         .when('/receiveMessage', {templateUrl: 'partials/receiveMessage.html'})
         .when('/loginPage', {templateUrl: 'partials/loginPage.html'})
         .when('/contact', {templateUrl: 'partials/contact.html'})
+        .when('/disconnection', {templateUrl: 'partials/disconnection.html'})
         .when('/loginPage/addNewUser', {templateUrl: 'partials/addNewUser.html'})
         .when('/loginPage/forgotPassword', {templateUrl: 'partials/forgotPassword.html'})
         .when('/loginPage/connected', {templateUrl: 'partials/connected.html'})
         .when('/login', {templateUrl: 'partials/connected.html'})
         .when('/maps', {templateUrl: 'partials/maps.html'})
-
         .otherwise({redirectTo: 'partials/home.html'});
 });
 
