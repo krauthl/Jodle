@@ -31,6 +31,18 @@ function connectionSocket(usrName){
 function afficherMessage(expediteur, message, date) {
     var messageHtml;
     if (expediteur == numeroCourant) {
+        messageHtml = '<div class="outgoing-chats">';
+        messageHtml += '<div class="outgoing-chats-msg">';
+        messageHtml += '<span class="name">' + expediteur + '</span>';
+        messageHtml += '<p>' + message + '</p>';
+        messageHtml += '<span class="time">' + date + '</span>';
+        messageHtml += '</div>';
+        messageHtml += '<div class="outgoing-chats-img">';
+        messageHtml += '<img src="">';
+        messageHtml += '</div>';
+        messageHtml += '</div>';
+        console.log(messageHtml);
+    } else {
         console.log(message);
         messageHtml = '<div class="received-chats">';
         messageHtml += '<div class="received-chats-img">';
@@ -42,18 +54,6 @@ function afficherMessage(expediteur, message, date) {
         messageHtml += '<p>' + message + '</p>';
         messageHtml += '<span class="time">' + date + '</span>';
         messageHtml += '</div>';
-        messageHtml += '</div>';
-        messageHtml += '</div>';
-        console.log(messageHtml);
-    } else {
-        messageHtml = '<div class="outgoing-chats">';
-        messageHtml += '<div class="outgoing-chats-msg">';
-        messageHtml += '<span class="name">' + expediteur + '</span>';
-        messageHtml += '<p>' + message + '</p>';
-        messageHtml += '<span class="time">' + date + '</span>';
-        messageHtml += '</div>';
-        messageHtml += '<div class="outgoing-chats-img">';
-        messageHtml += '<img src="">';
         messageHtml += '</div>';
         messageHtml += '</div>';
         console.log(messageHtml);
