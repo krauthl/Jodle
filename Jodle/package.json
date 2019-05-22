@@ -16,7 +16,7 @@
     "angular": "^1.7.8",
     "angular-route": "^1.7.8",
     "bootstrap": "^4.3.1",
-    "connect": "^3.6.6",
+    "connect": "^3.7.0",
     "cordova-android": "^8.0.0",
     "cordova-browser": "^6.0.0",
     "cordova-plugin-camera": "^4.0.3",
@@ -26,8 +26,8 @@
     "cordova-plugin-googlemaps": "^2.6.2",
     "cordova-plugin-media-capture": "^3.0.2",
     "cz.blocshop.socketsforcordova": "^1.1.0",
-    "express": "^4.16.4",
-    "materialize-css": "^1.0.0-rc.2",
+    "express": "^4.17.0",
+    "materialize-css": "^1.0.0",
     "socket.io": "^2.2.0"
   },
   "devDependencies": {

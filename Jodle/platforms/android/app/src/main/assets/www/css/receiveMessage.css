@@ -68,7 +68,7 @@ img{
 }
 
 .outgoing-chats-msg p{
-    background: #007bff none repeat scroll 0 0;
+    background: linear-gradient(rgb(255, 143, 178) 0%, rgb(167, 151, 255) 50%, rgb(0, 229, 255) 100%);
     color: #fff;
     border-radius:10px;
     font-size: 14px;
@@ -78,7 +78,7 @@ img{
     width:100%
 }
 .outgoing-chats-msg{
-    float: left;
+    float: right;
     with:46%;
     margin-left: 45%;
 }

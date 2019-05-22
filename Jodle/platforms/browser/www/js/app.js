@@ -16,7 +16,7 @@ function connectionSocket(usrName){
         console.log("le numero courant est " + numeroCourant);
         socket.on('boiteReception', function(nomExpe, message, date){
             if(window.location.hash != '#/receiveMessage'){
-                //Si la location n'est pas receiveMessage
+                //Si la location n'est pas receiveMessage (permet d'avoir du temps réel)
                 alert("J'ai reçu le message "+ message + " de la part de " + nomExpe + " à la date " + date);
                 listeMessage.push({expediteur : nomExpe, message: message, date: date}); //remplir une array liste avec les messages à afficher
             }
@@ -24,9 +24,7 @@ function connectionSocket(usrName){
                 //sinon l'afficher direct
                 afficherMessage(nomExpe, message, date);
             }
-
         });
-
     });
 }
 

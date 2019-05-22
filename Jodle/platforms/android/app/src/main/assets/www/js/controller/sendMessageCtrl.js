@@ -1,17 +1,11 @@
 function sendMessageCtrl($scope){
 
-    var chat = io.connect( 'http://localhost:8080' );
 
-    chat.on('connection', function(message){
-        alert(message);
-    });
 
     //fonction appelée lors de l'appui sur le bouton envoyer
     $scope.envoyer = function(){
-        console.log("j'ai appuyé sur bouton");
         var textAEnvoyer = document.getElementById("messageAEnvoyer").value;
-        console.log(textAEnvoyer);
-        chat.emit('chat', textAEnvoyer); //envoyer aussi le numéro de telephone
+        socket.emit('write', textAEnvoyer, numeroCourant); //envoyer aussi le numéro de telephone
      };
 
 
