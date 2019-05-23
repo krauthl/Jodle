@@ -31,9 +31,12 @@ function loginCtrl($scope, $location) {
     };
     
     $scope.demandeDeconnexion = function() {
-        // TODO : expliquer à la socket qu'il faut se déconnecter maintenant
         document.getElementById("logIcon").style.display = "none";
-        socket.emit('disconnect');//A enlever
+        socket.emit('disconnect');
+
+        $scope.$apply(function(){
+            $location.path('/loginPage'); //On redirige l'utilisateur vers la page d'envoi de message
+        });
 
     };
 }

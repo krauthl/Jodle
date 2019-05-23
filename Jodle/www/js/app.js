@@ -5,7 +5,13 @@ var numeroCourant;
 
 var listeMessage = [];
 
+var listeContact = [];
+
+var listeLocalisationAmis = [];
+
 var watchID = navigator.geolocation.watchPosition(onSuccessPosition, onErrorPosition, { timeout: 30000 });
+
+var idMessage = 0;
 
 function onDeviceReady(){
 }
@@ -25,12 +31,20 @@ function connectionSocket(usrName){
         socket.on('recupereMessage', function(message){
 
             for(var i=0; i<message.length; i++){
-                listeMessage.push({expediteur : message[i].expediteur, destinataire: message[i].destinataire, message: message[i].message});
+                var n_Message = {expediteur : message[i].expediteur, destinataire: message[i].destinataire, message: message[i].message};
+                /*var n_Message_json = JSON.stringify(n_Message);
+                window.localStorage.setItem(idMessage, n_Message_json);
+                idMessage++;*/ //A decommenter si node est sur serveur
+                listeMessage.push(n_Message);
             }
         });
 
         //récupération des messages instantannés
         socket.on('boiteReception', function(nomExpe, message, date){
+            /*var n_Message = {expediteur : nomExpe, message: message, date: date};
+            var n_Message_json = JSON.stringify(n_Message);
+            window.localStorage.setItem(idMessage, n_Message_json);
+            idMessage++;*/ //A decommenter si node est sur serveur
             if(window.location.hash != '#/receiveMessage'){
                 //Si la location n'est pas receiveMessage (permet d'avoir du temps réel)
                 //envoiContactServeur(); //A decommenter quand on utilisera le serveur
@@ -43,6 +57,21 @@ function connectionSocket(usrName){
                     afficherMessage(nomExpe, message, date);
                 }
             }
+        });
+
+        //récupération de la liste des contacts présents sur Jodle
+        socket.on('contact', function(numero, nom){
+
+            listeContact.push({numero : numero, nom : nom});
+        });
+
+        //récupération de la la localisation des amis
+        socket.on('location', function(nom, longitude, latitude){
+            listeLocalisationAmis.push({nom : nom, longitude : longitude, latitude : latitude});
+        });
+
+        socket.on('deconnection',function(){
+
         });
     });
 }
@@ -137,7 +166,7 @@ function formatStringNumero(numero){
 function onSuccessPosition(position) {
     //alert(position.coords.longitude);
     //alert(position.coords.latitude);
-    //socket.emit('localisation', numeroCourant, position.coords.longitude, position.coords.longitude);
+    //socket.emit('localisation', numeroCourant, position.coords.longitude, position.coords.latitude);
     socket.emit('localisation', numeroCourant, 5, 45);
 }
 

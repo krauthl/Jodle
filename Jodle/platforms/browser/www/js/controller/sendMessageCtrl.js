@@ -1,4 +1,4 @@
-var imageDataGlobal;
+//var imageDataGlobal;
 var pictureSource;   // picture source
 var destinationType; // sets the format of returned value
 
@@ -23,16 +23,22 @@ function sendMessageCtrl($scope, $location){
             destinationType: destinationType.FILE_URI});
 
         function onPhotoURISuccess(imageData) {
-            imageDataGlobal = imageData;
-            $location.path('/sendMessage/takenPicture');
+            uploadPhoto(imageData);
+
+            //$scope.$apply(function(){
+            //    $location.path('/sendMessage/takenPicture'); //On redirige l'utilisateur vers la page d'envoi de message
+            //});
+            //var largeImage = document.getElementById('largeImage');
+            //var sender = document.getElementById('sender');
+            //largeImage.style.display = 'block';
+            //sender.style.display = 'none';
+            //largeImage.src = imageData;
         }
 
         function onFail(message) {
             alert('Failed because: ' + message);
         }
     };
-
-
 
 
     function uploadPhoto(imageURI) {
@@ -48,9 +54,20 @@ function sendMessageCtrl($scope, $location){
         options.params = params;
 
         var ft = new FileTransfer();
-        ft.upload(imageURI, encodeURI("http://some.server.com/upload.php"), win, fail, options);
+        ft.upload(imageURI, encodeURI("http://localhost:8000/img"), win, fail, options);
     }
 
+    function win(r) {
+        alert("photo envoyée");
+        console.log("Code = " + r.responseCode);
+        console.log("Response = " + r.response);
+        console.log("Sent = " + r.bytesSent);
+    }
 
+    function fail(error) {
+        alert("An error has occurred: Code = " + error.code);
+        console.log("upload error source " + error.source);
+        console.log("upload error target " + error.target);
+    }
 
 }

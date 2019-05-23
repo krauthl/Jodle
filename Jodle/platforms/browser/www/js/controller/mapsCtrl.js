@@ -18,14 +18,15 @@ function initMap() {
 
 function onMapInit(map) {
 
-    // Add a marker
-    map.addMarker({
-        'position': GOOGLE,
-        'title': "Wesh mon gros"
-    }, function(marker) {
+    // Add markers
+    for(var i = 0; i<listeLocalisationAmis.length;i++){
+        map.addMarker({
+            'position': {lng: listeLocalisationAmis[i].longitude, lat: listeLocalisationAmis[i].latitude},
+            'title': listeLocalisationAmis[i].nom
+        }, function(marker) {
+            // Show the infoWindow
+            marker.showInfoWindow();
 
-        // Show the infoWindow
-        marker.showInfoWindow();
-
-    });
+        });
+    }
 }

@@ -29,6 +29,9 @@
     },
     "cordova-plugin-geolocation": {
       "PACKAGE_NAME": "fr.ensimag.Jodle"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "fr.ensimag.Jodle"
     }
   },
   "dependent_plugins": {
